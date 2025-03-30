@@ -1,0 +1,149 @@
+Overview of the Lesson
+
+This lesson teaches how to:
+
+    Understand the Unix filesystem structure.
+    Navigate directories using commands like cd, ls, and pwd.
+    Interpret paths (absolute and relative).
+    Use shortcuts like ~ and ...
+
+
+---
+
+### Step 1: What’s This All About?
+The Unix shell is like a map for your computer’s files. You use commands to:
+- **Move around** (like walking between rooms).
+- **Look at stuff** (like peeking into boxes).
+
+Think of your computer as a big filing cabinet. The shell helps you open drawers (`cd`) and list what’s inside (`ls`).
+
+#### Why It Matters for Coding:
+When you code, your files (e.g., `script.py`, `data.csv`) are stored in folders. You need to know how to find them and move between them.
+
+---
+
+### Step 2: Your Starting Point
+Imagine you’re at your “desk” on the computer—your **home directory**. It’s like your personal workspace.
+
+#### Command: `whoami`
+- **What it does:** Tells you your username (like checking your ID).
+- **Try it:** Type `whoami` in your terminal.
+- **Example Output:** `nelle` (or your name, like `john`).
+- **Why:** Confirms who you are (useful for permissions later).
+
+#### Command: `pwd`
+- **What it does:** Shows where you are (your “address” on the computer).
+- **Try it:** Type `pwd`.
+- **Example Output:** `/home/nelle` (or `/home/john` for you).
+- **Breakdown:**
+  - `/` = The “root” of the filing cabinet (top level).
+  - `home` = A big drawer for all users.
+  - `nelle` = Your personal drawer inside `home`.
+
+#### Check-In:
+Run `pwd`—what’s your home directory? Tell me what you see, and I’ll build from there.
+
+---
+
+### Step 3: Looking Around (`ls`)
+#### Command: `ls`
+- **What it does:** Lists what’s in your current “room” (directory).
+- **Try it:** Type `ls`.
+- **Example Output:** `data  notes.txt` (whatever files/folders you have).
+- **Problem:** `ls` doesn’t exist in Windows CMD—it’s a Unix command. If you’re on Windows CMD, use `dir` instead. If you’re on Linux/macOS or a Unix shell (e.g., Git Bash), `ls` works.
+
+#### Fix If You’re Confused:
+- If you’re on Windows and got an error with `ls`, try `dir`. Same idea—lists files.
+- If you’re on Unix (Linux/macOS), `ls` should work.
+
+#### Command: `ls -F` (Unix only)
+- **What it does:** Adds symbols to clarify what’s what:
+  - `/` = Folder (e.g., `data/`).
+  - Nothing = File (e.g., `notes.txt`).
+- **Try it:** `ls -F`.
+- **Example Output:** `data/  notes.txt`.
+
+#### Coding Example:
+- You’re in `/home/john`, and `ls -F` shows `code/  script.py`.
+- `code/` is a folder (maybe your project).
+- `script.py` is a Python file.
+
+#### Check-In:
+Try `ls` (or `dir` if on Windows). What do you see? If it didn’t work, tell me your setup (Windows? Linux?), and I’ll adjust.
+
+---
+
+### Step 4: Moving Around (`cd`)
+#### Command: `cd [place]`
+- **What it does:** Moves you to a new “room” (directory).
+- **Try it:** If you saw `data/` from `ls -F`, type `cd data`.
+- **Verify:** Run `pwd` → Should say `/home/john/data`.
+
+#### Going Back:
+- `cd ..` → Moves “up” to the parent directory.
+- **Example:**
+  - You’re in `/home/john/data`.
+  - `cd ..` → Now in `/home/john`.
+  - `pwd` confirms it.
+
+#### Going Home:
+- `cd ~` → Takes you straight to your home directory (e.g., `/home/john`).
+- **Try it:** Wherever you are, type `cd ~`, then `pwd`.
+
+#### Coding Example:
+- You’re in `/home/john`.
+- `cd code` → Go to your project folder.
+- Work on `script.py`.
+- `cd ..` → Back to `/home/john`.
+
+#### Check-In:
+Try `cd` to a folder you saw with `ls` (e.g., `cd data`), then run `pwd`. Where are you now?
+
+---
+
+### Step 5: Paths (The “Address” System)
+#### Two Types:
+1. **Absolute Path:** Full address from the root (`/`).
+   - Example: `/home/john/data` → Exact location, works from anywhere.
+   - Use: `cd /home/john/data`.
+
+2. **Relative Path:** Shortcut based on where you are.
+   - Example: If you’re in `/home/john`, `cd data` → Goes to `/home/john/data`.
+   - Use: `ls data` (lists `data/` without moving).
+
+#### Special Tricks:
+- `.` = “Here” (current directory).
+  - `ls .` = Same as `ls`.
+- `..` = “Up one level” (parent directory).
+  - `ls ..` = Lists the parent folder’s contents.
+- `~` = “My home” (e.g., `/home/john`).
+  - `ls ~` = Lists your home directory.
+
+#### Coding Example:
+- You’re in `/home/john/code`.
+- `ls ../data` → Looks at `data/` without leaving `code/`.
+- `cd ~` → Back to `/home/john`.
+
+#### Check-In:
+If you’re in a subdirectory (e.g., `data`), try `ls ..`. What do you see?
+
+---
+
+### Step 6: Putting It Together
+#### Mini Coding Scenario:
+- You’re in `/home/john`.
+- `ls -F` → `code/  data/  script.py`.
+- **Goal:** Work in `code/`.
+- Steps:
+  1. `cd code` → Move to `/home/john/code`.
+  2. `pwd` → Confirms `/home/john/code`.
+  3. `ls` → See what’s inside (e.g., `main.py`).
+  4. `cd ..` → Back to `/home/john`.
+  5. `ls data` → Check `data/` without moving.
+
+#### Check-In:
+Try this flow with your own files. What’s in your home directory when you run `ls -F` (or `dir`)?
+
+---
+
+
